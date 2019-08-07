@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02_常用指定01</title>
+</head>
+<!--
+    1.Angular指令:
+        * Angular为HTML页面扩展的.自定义标签和标签属性
+        * 与Angular的作用域(scope) 交互,扩展页面动态数据表现力
+    2.常用指令:
+        * ng-app: 指定模块名,angular管理区域
+        * ng-model: 双向绑定数据,输入相关标签
+        * ng-init: 初始化
+        * ng-click: 调用作用域对象的方法(点击时)
+        * ng-controller: 指定控制器构造函数名,内部会自动创建一个新的子作用域(外部的)
+        * ng-bind: 解决使用{{}}显示数据闪屏,
+        * ng-repeat: 遍历数组显示数据,数组有几个元素就会产生新的作用域
+            * $index $first $last $middle $odd $even
+        * ng-show: 布尔类型,为true才显示,
+        * ng-hide: 布尔类型,为true隐藏
+-->
+<body ng-app="myApp">
+<div>
+    <div ng-controller="myCat">
+
+    </div>
+</div>
+<script type='text/javascript' src='../../../js/angular-1.2.29/angular.js'></script>
+<script type="text/javascript">
+    angular.module('myApp', [])
+        .controller('myCat', ['$scope', function ($scope) {
+
+        }])
+</script>
+</body>
+</html>

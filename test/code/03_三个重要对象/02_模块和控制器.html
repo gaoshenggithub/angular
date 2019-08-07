@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp">
+
+<div ng-controller="myController">
+    <label>
+        <input type="text" ng-model="empName">
+    </label>
+    <p>{{empName}}</p>
+</div>
+<div ng-controller="myController2">
+    <label>
+        <input type="text" ng-model="empName">
+    </label>
+    <p>{{empName}}</p>
+</div>
+<script type='text/javascript' src='../../../js/angular-1.2.29/angular.js'></script>
+<script type="text/javascript">
+    //const model = angular.module('myApp', []);
+    /* model.controller('myController', function ($scope) {
+         $scope.empName = 'AB'
+     });
+     model.controller('myController2',function ($scope) {
+         $scope.empName = 'CD'
+     });*/
+    /* angular.module('myApp', [])
+         .controller('myController', function ($scope) {
+             $scope.empName = 'AB'
+         })
+         .controller('myController2', function ($scope) {
+             $scope.empName = 'CD'
+         })*/
+    //以上代码有问题
+    /**
+     * js压缩之后,形参会使用abcd字母替代
+     * 代码压缩的$scope会被abcd替代,angulra解析不了
+     */
+    angular.module('myApp', [])
+        .controller('myController', ['$scope', function ($scope) {
+            $scope.empName = 'AB'
+        }])
+        .controller('myController2', ['$scope', function ($scope) {
+            $scope.empName = 'CD'
+        }])
+</script>
+</body>
+</html>

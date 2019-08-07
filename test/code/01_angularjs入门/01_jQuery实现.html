@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="button"/>
+<p>输入内容为: <span id="context"> </span></p>
+<script type="text/javascript" src="../../../js/jquery/jquery-1.11.1.js">
+
+</script>
+
+<script type="text/javascript">
+    $('#button').keyup(function () {
+        const value = this.value;
+        console.log(value)
+        $('#context').html(value)
+    })
+</script>
+</body>
+</html>
