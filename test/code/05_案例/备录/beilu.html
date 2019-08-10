@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp">
+<div ng-controller="myInit">
+    <div>
+        <input type="text" ng-model="message">
+        <button ng-click="add()">添加</button>
+    </div>
+    <div ng-repeat="d in data">
+        <input type="checkbox" ng-model="d.status">
+        <span>{{d.username}}</span>
+    </div>
+    <div>
+        <button ng-click="delete()">
+            清除数据
+        </button>
+    </div>
+</div>
+</body>
+<script type='text/javascript' src='../../../../js/angular-1.2.29/angular.js'></script>
+<script type="text/javascript" src="app.js"></script>
+</html>

@@ -23,14 +23,74 @@
 <body ng-app="myApp">
 <div>
     <div ng-controller="myCat">
-
+        <div>
+            <h2>价格自动计算(自动)</h2>
+            <label>
+                <input type="number" ng-model="count1">
+            </label>
+            <label>
+                <input type="number" ng-model="price1">
+            </label>
+            <p>总计{{count1*price1}}</p>
+        </div>
+        <div>
+            <h2>价格手动计算(手动)</h2>
+            <label for="">
+                <input type="number" ng-model="count2">
+            </label>
+            <label for="">
+                <input type="number" ng-model="price2">
+            </label>
+            <p>总计{{totalPrice}}</p>
+            <button ng-click="getTotalPrice()">计算</button>
+        </div>
+        <div>
+            <h2>人员列表</h2>
+            <ul>
+                <li ng-repeat="people in peoples">
+                    {{$even}}---{{$odd}}---{{$last}}---{{$middle}}---{{$first}}----{{$index}}-----{{people.username}}-----{{people.gender}}
+                </li>
+            </ul>
+        </div>
+        <div>
+            <!--ng-bind: 解决使用{{}}显示数据闪屏,在很短时间内-->
+            <h2>ng-bind</h2>
+            <p ng-bind="123"></p>
+        </div>
+        <div>
+            <p ng-show="isLock" ng-bind="123456"></p>
+            <p ng-hide="isLock" ng-bind="654321"></p>
+            <button ng-click="change()">切换</button>
+        </div>
     </div>
 </div>
 <script type='text/javascript' src='../../../js/angular-1.2.29/angular.js'></script>
 <script type="text/javascript">
     angular.module('myApp', [])
         .controller('myCat', ['$scope', function ($scope) {
-
+            $scope.count1 = 10;
+            $scope.price1 = 1;
+            /*-----*/
+            $scope.count2 = 10;
+            $scope.price2 = 1;
+            $scope.totalPrice = 10;
+            $scope.getTotalPrice = function () {
+                $scope.totalPrice = $scope.count2 * $scope.price2
+            };
+            /*-----*/
+            $scope.peoples = [
+                {username: 'A', gender: '1'},
+                {username: 'B', gender: '2'},
+                {username: 'C', gender: '3'},
+                {username: 'D', gender: '4'},
+                {username: 'E', gender: '5'},
+                {username: 'F', gender: '6'},
+            ];
+            /*ng*/
+            $scope.isLock = true;
+            $scope.change = function () {
+                $scope.isLock = !$scope.isLock
+            }
         }])
 </script>
 </body>

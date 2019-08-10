@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp">
+<div ng-controller="biji">
+    <textarea cols="30" rows="10" ng-model="message"></textarea>
+    <div>
+        <button ng-click="save()">保存</button>
+        <button ng-click="read()">读取</button>
+        <button ng-click="delete()">删除</button>
+    </div>
+    <div>
+        <p>输入字符数量为:{{getCount()}}</p>
+    </div>
+</div>
+</body>
+<script type='text/javascript' src='../../../../js/angular-1.2.29/angular.js'></script>
+<script type="text/javascript" src="app.js"></script>
+</html>
